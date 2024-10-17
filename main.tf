@@ -303,6 +303,14 @@ resource "azurerm_container_app" "this" {
       update = timeouts.value.update
     }
   }
+
+  lifecycle {
+    ignore_changes = [
+      latest_revision_fqdn,
+      latest_revision_name,
+      template.0.container[0].image,
+    ]
+  }
 }
 
 resource "azurerm_container_app_custom_domain" "this" {
