@@ -306,8 +306,7 @@ resource "azurerm_container_app" "this" {
 
   lifecycle {
     ignore_changes = [
-      latest_revision_name,
-      template.0.container[0].image,
+      template.0.container[0].image
     ]
   }
 }
